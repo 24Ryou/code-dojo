@@ -1,5 +1,5 @@
 # 5556282156230d0e5e000089
-# -------------------------------- MY SOLUTION ------------------------------- #
+# -------------------------------- SOLUTION ------------------------------- #
 def dna_to_rna(dna : str):
     table = str.maketrans("GCAT" , "GCAU")
     return dna.translate(table)
