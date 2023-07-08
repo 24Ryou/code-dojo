@@ -1,14 +1,42 @@
-# 568d0dd208ee69389d000016
+# 56efc695740d30f963000557
 # --------------------------------- SOLUTION --------------------------------- #
-def rental_car_cost(d):
-    # 40 every day
-    # for 7 days or more -50 off for 3 days or more -20 off
-    return d * 40 - (50 if d >= 7 else 20 if d >= 3 else 0)
+def to_alternating_case(string : str):
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    translation_table = str.maketrans(letters + letters.upper(), letters.upper() + letters)
+    return string.translate(translation_table)
 # ----------------------------------- TEST ----------------------------------- #
 import codewars_test as test
-@test.it('Basic Test Cases')
-def basic_test_cases():
-    test.assert_equals(rental_car_cost(1),40)
-    test.assert_equals(rental_car_cost(4),140)
-    test.assert_equals(rental_car_cost(7),230)
-    test.assert_equals(rental_car_cost(8),270)
+@test.describe("Basic tests")
+def test_bacics():
+    @test.it("should work for fixed tests (provided in the description)")
+    def test_fixed():
+        test.assert_equals(to_alternating_case("hello world"), "HELLO WORLD")
+        test.assert_equals(to_alternating_case("HELLO WORLD"), "hello world")
+        test.assert_equals(to_alternating_case("hello WORLD"), "HELLO world")
+        test.assert_equals(to_alternating_case("HeLLo WoRLD"), "hEllO wOrld")
+        test.assert_equals(to_alternating_case("12345"), "12345")
+        test.assert_equals(to_alternating_case("1a2b3c4d5e"), "1A2B3C4D5E")
+        test.assert_equals(to_alternating_case("String.prototype.toAlternatingCase"), "sTRING.PROTOTYPE.TOaLTERNATINGcASE")
+        test.assert_equals(to_alternating_case(to_alternating_case("Hello World")), "Hello World")
+        
+        
+    @test.it("should work for the title of this Kata")
+    def test_title():
+        title = "altERnaTIng cAsE"
+        title = to_alternating_case(title)
+        test.assert_equals(title, "ALTerNAtiNG CaSe")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "altERnaTIng cAsE")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "ALTerNAtiNG CaSe")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "altERnaTIng cAsE")
+        title = "altERnaTIng cAsE <=> ALTerNAtiNG CaSe"
+        title = to_alternating_case(title)
+        test.assert_equals(title, "ALTerNAtiNG CaSe <=> altERnaTIng cAsE")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "altERnaTIng cAsE <=> ALTerNAtiNG CaSe")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "ALTerNAtiNG CaSe <=> altERnaTIng cAsE")
+        title = to_alternating_case(title)
+        test.assert_equals(title, "altERnaTIng cAsE <=> ALTerNAtiNG CaSe")
