@@ -4,7 +4,7 @@ import temp
 import json
 import requests
 import shutil
-
+import re
 
 def url_to_json(url: str) -> dict:
     """
@@ -118,8 +118,10 @@ def copy_solution(uid: str, language: str) -> bool:
 def get_uid_from_file(which_file : str) -> str:
     app_path = SQLiteDB().fetch(f"SELECT appPath FROM languages WHERE languages.name = '{which_file}';")[0]
     with open(app_path) as f:
-        uid = f.readline().split()[-1]
-        return uid
+        match = re.search(r"/kata/(\w+)", f.readline().split()[-1])
+        if match:
+            kata_id = match.group(1)
+        return kata_id
 
 def save():
     languages = SQLiteDB().fetch("SELECT * FROM languages" , None , True)
