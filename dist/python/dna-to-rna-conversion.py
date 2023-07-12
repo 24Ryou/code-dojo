@@ -1,4 +1,4 @@
-# 5556282156230d0e5e000089
+# https://www.codewars.com/kata/5556282156230d0e5e000089
 # -------------------------------- SOLUTION ------------------------------- #
 def dna_to_rna(dna : str):
     table = str.maketrans("GCAT" , "GCAU")

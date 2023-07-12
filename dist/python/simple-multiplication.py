@@ -1,4 +1,4 @@
-# 583710ccaa6717322c000105
+# https://www.codewars.com/kata/583710ccaa6717322c000105
 # --------------------------------- SOLUTION --------------------------------- #
 def simple_multiplication(number) :
     return number * 9 if number & 1 else number * 8

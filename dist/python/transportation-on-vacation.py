@@ -1,4 +1,4 @@
-# 568d0dd208ee69389d000016
+# https://www.codewars.com/kata/568d0dd208ee69389d000016
 # --------------------------------- SOLUTION --------------------------------- #
 def rental_car_cost(d):
     # 40 every day
