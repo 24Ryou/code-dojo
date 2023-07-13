@@ -31,6 +31,10 @@ python .
 
 This will start the automatic system that will categorize your solutions based on the programming language used.
 
+## Planned update
+
+I am planning to update my repository by adding a webpage that will allow users to search and review the content more easily. Additionally, I will share tips and insights that I learn from solving each kata.
+
 ## Contributing
 
 If you would like to contribute to the repository, please fork the repository and submit a pull request.
