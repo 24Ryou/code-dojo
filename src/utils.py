@@ -100,6 +100,12 @@ def add_solutions(uid: str, language: str) -> bool:
     else:
         return False
 
+
+def sanitize_filename(filename):
+    # Replace any characters that are not alphanumeric, a period, or a dash with an underscore
+    return re.sub(r'[^\w.-]', '_', filename)
+
+
 def copy_solution(uid: str, language: str) -> bool:
     db = SQLiteDB()
     language_row = db.fetch(
@@ -107,6 +113,7 @@ def copy_solution(uid: str, language: str) -> bool:
     app_path = language_row[2]
     dist_path = language_row[3]
     slug = db.fetch("SELECT slug FROM katas WHERE katas.uid = '%s'" % uid)
+    slug = sanitize_filename(slug)
     try:
         if not os.path.exists(dist_path):
             os.makedirs(dist_path)
