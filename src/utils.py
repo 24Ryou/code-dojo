@@ -93,7 +93,7 @@ def insert_language(language_data: dict) -> bool:
 def add_solutions(uid: str, language: str) -> bool:
     db = SQLiteDB()
     value = db.fetch(f"select solutions from katas where katas.uid = '{uid}'")[0]
-    if value != "none":
+    if value != "none" and language not in value:
         language += " - " + language.strip()
     if copy_solution(uid, language):
         return db.execute_query("UPDATE katas SET solutions = ? WHERE uid = ?", (language.lower(), uid))
