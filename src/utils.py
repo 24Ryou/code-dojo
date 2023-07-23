@@ -55,7 +55,7 @@ def insert_kata(data: dict) -> bool:
     :return: a boolean value.
     """
     sql = '''
-  INSERT INTO katas (uid, name, slug, url, rank, description, languages , solutions)
+  INSERT OR IGNORE INTO katas (uid, name, slug, url, rank, description, languages , solutions)
   VALUES (:uid, :name, :slug, :url, :rank, :description, :languages, :solutions)
   '''
     params = {
@@ -85,7 +85,7 @@ def insert_language(language_data: dict) -> bool:
     db = SQLiteDB()
     columns = list(language_data.keys())
     values = list(language_data.values())
-    sql = "INSERT INTO languages (%s) VALUES (%s);" % (
+    sql = "INSERT OR iGNORE INTO languages (%s) VALUES (%s);" % (
         ",".join(columns), ",".join(map(lambda x: f"'{x}'", values)))
     return db.execute_query(sql)
 
@@ -122,6 +122,13 @@ def get_uid_from_file(which_file : str) -> str:
         if match:
             kata_id = match.group(1)
         return kata_id
+
+def get_none_solutions():
+    db = SQLiteDB()
+    tuple_ = db.fetch("SELECT katas.uid , katas.name , katas.url FROM katas WHERE katas.solutions = 'none';" , None , True)
+    for i , (uid , name , url) in enumerate(tuple_):
+        print(f"{i} - {name} , {uid} , {url}")
+    load()    
 
 def save():
     languages = SQLiteDB().fetch("SELECT * FROM languages" , None , True)
