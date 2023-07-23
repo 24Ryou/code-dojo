@@ -133,6 +133,9 @@ def get_uid_from_file(which_file : str) -> str:
 def get_none_solutions():
     db = SQLiteDB()
     tuple_ = db.fetch("SELECT katas.uid , katas.name , katas.url FROM katas WHERE katas.solutions = 'none';" , None , True)
+    if len(tuple_) == 0: 
+        print("All katas are solved!")
+        return
     for i , (uid , name , url) in enumerate(tuple_):
         print(f"{i} - {name} , {uid} , {url}")
     load()    
