@@ -37,6 +37,11 @@ PYTHON_START = """# https://www.codewars.com/kata/{}
 import codewars_test as test
 """
 
+SQL_START = """# https://www.codewars.com/kata/{}
+# -------------------------------- SOLUTION ------------------------------- # 
+
+"""
+
 LANGUAGE_LIST = [
   {
   "name" : "python",
@@ -45,5 +50,13 @@ LANGUAGE_LIST = [
   "solutionPath" : "dist/python",
   "test" : "https://docs.codewars.com/languages/python",
   "text" : PYTHON_START
+  },
+  {
+  "name" : "sql",
+  "filetype" : "sql",
+  "appPath" : "app/kata.sql",
+  "solutionPath" : "dist/sql",
+  "test" : "https://docs.codewars.com/languages/sql",
+  "text" : SQL_START
   }
 ]

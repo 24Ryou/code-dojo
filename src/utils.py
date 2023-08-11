@@ -112,12 +112,13 @@ def copy_solution(uid: str, language: str) -> bool:
         "SELECT * FROM languages WHERE languages.name = '%s'" % language)
     app_path = language_row[2]
     dist_path = language_row[3]
+    filetype = language_row[1]
     slug = db.fetch("SELECT slug FROM katas WHERE katas.uid = '%s'" % uid)
     slug = sanitize_filename(slug[0])
     try:
         if not os.path.exists(dist_path):
             os.makedirs(dist_path)
-        shutil.copy(app_path, os.path.join(dist_path, "%s.py" % slug))
+        shutil.copy(app_path, os.path.join(dist_path, "%s.%s" % (slug, filetype)))
         return True
     except OSError:
         return False
