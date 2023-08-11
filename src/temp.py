@@ -37,8 +37,8 @@ PYTHON_START = """# https://www.codewars.com/kata/{}
 import codewars_test as test
 """
 
-SQL_START = """/* https://www.codewars.com/kata/{}
-/* -------------------------------- SOLUTION --------------------------------
+SQL_START = """-- https://www.codewars.com/kata/{}
+-- -------------------------------- SOLUTION --------------------------------
 """
 
 LANGUAGE_LIST = [
