@@ -1,4 +1,3 @@
-# https://www.codewars.com/kata/590a95eede09f87472000213
-# -------------------------------- SOLUTION ------------------------------- # 
-
- 
+-- https://www.codewars.com/kata/590a95eede09f87472000213
+-- -------------------------------- SOLUTION --------------------------------
+select * from users where age >= 18;

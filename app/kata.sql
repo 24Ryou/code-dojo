@@ -1,3 +1,3 @@
--- https://www.codewars.com/kata/590ba881fe13cfdcc20001b4
+-- https://www.codewars.com/kata/590a95eede09f87472000213
 -- -------------------------------- SOLUTION --------------------------------
-select * from travelers where country not in ('Mexico', 'Canada', 'USA');
+select * from users where age >= 18;
