@@ -38,7 +38,7 @@ import codewars_test as test
 """
 
 SQL_START = """/* https://www.codewars.com/kata/{}
-/* -------------------------------- SOLUTION -------------------------------- */
+/* -------------------------------- SOLUTION --------------------------------
 """
 
 LANGUAGE_LIST = [

@@ -167,7 +167,8 @@ def load():
         i += 1
     i = int(input("Enter your number: "))
     with open(languages[i][2] , "w") as f:
-        f.write(languages[i][-1].format(id))
+        lines = list(map(str.strip, languages[i][-1].format(id).split("\n")))
+        f.write("\n".join(lines))
     insert_kata(data)
     
 def setup():
