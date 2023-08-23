@@ -1,6 +1,4 @@
--- https://www.codewars.com/kata/591127cbe8b9fb05bd00004b
+-- https://www.codewars.com/kata/54ff3102c1bad923760001f3
 -- -------------------------------- SOLUTION --------------------------------
-select name, author, copies_sold
-from books
-order by copies_sold desc
-limit 5;
+SELECT str, LENGTH(REGEXP_REPLACE(str, '[^aeiou]', '', 'g')) AS res
+FROM getcount
