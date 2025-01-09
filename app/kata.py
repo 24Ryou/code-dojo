@@ -9,7 +9,7 @@ def switch_it_up(number):
          5 : 'Five',
          6 : 'Six',
          7 : 'Seven',
-         8 : 'Eight',
+         8 : 'Eight', 
          9 : 'Nine'}
 
     return d.get(number)
