@@ -28,10 +28,10 @@ contains only alphanumeric characters (no special characters)
 
 #--------------------
 from string import ascii_lowercase as LOWER, ascii_uppercase as UPPER, digits as DIGITS
-from random import choice, shuffle, randint
+from random import choice, choices as multi_choice, shuffle, randint
 
 def password_gen():
-    pw = [choice(UPPER), choice(LOWER), choice(DIGITS)] + [choice(UPPER+LOWER+DIGITS) for i in range(randint(3, 17))]
+    pw = [choice(UPPER), choice(LOWER), choice(DIGITS)] + multi_choice(UPPER+LOWER+DIGITS, k=randint(3,17))
     shuffle(pw)
     return "".join(pw)
 
