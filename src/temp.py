@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS languages (
 PYTHON_START = """# https://www.codewars.com/kata/{}
 # -------------------------------- SOLUTION ------------------------------- #
 # ----------------------------------- TEST ----------------------------------- #
-import codewars_test as test
+# import codewars_test as test
 """
 
 SQL_START = """-- https://www.codewars.com/kata/{}
