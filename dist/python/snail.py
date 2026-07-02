@@ -32,6 +32,43 @@ def snail(snail_map):
                 res.append(snail_map[i][left])
             left += 1
     return res
+
+# 2nd way
+def snail(matrix):
+    if not matrix or not matrix[0]: return []
+    
+    n = len(matrix)
+    # Directions: Right, Down, Left, Up
+    # These are your "switchers" for i and j
+    dr = [0, 1, 0, -1]
+    dc = [1, 0, -1, 0]
+    
+    r, c = 0, 0 # Current position
+    di = 0      # Current direction index (starts at Right)
+    res = []
+    
+    # Track visited cells to know when to "switch"
+    visited = [[False] * n for _ in range(n)]
+    
+    for _ in range(n * n):
+        res.append(matrix[r][c])
+        visited[r][c] = True
+        
+        # Predict next position
+        next_r = r + dr[di]
+        next_c = c + dc[di]
+        
+        # Check boundary or if already visited
+        if 0 <= next_r < n and 0 <= next_c < n and not visited[next_r][next_c]:
+            r, c = next_r, next_c
+        else:
+            # Hit a wall! Change direction (The Switcher)
+            di = (di + 1) % 4
+            r += dr[di]
+            c += dc[di]
+            
+    return res
+
 # ----------------------------------- TEST ----------------------------------- #
 # import codewars_test as test
 array = [[1,2,3],
